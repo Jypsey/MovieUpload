@@ -1,15 +1,15 @@
 
 [pyrogram]
-api_id = 2018347                                                      # required
-api_hash = "049573814bd3a7b1141bed18011fc6"                       # required
-bot_token = "6752230007:AAGtbsdCfcu184hsYqA13ipjmq-5ULg"                  # either bot_token or session_string is required
+api_id = 22359038                                                      # required
+api_hash = "b3901895dc193c30c808ba4f1b550ed0"                       # required
+bot_token = "7196443239:AAFLFmiywWXoXoz61eSF9m34xj31hqxIJ00"                  # either bot_token or session_string is required
 session_string = "" # either bot_token or session_string is required
-sudo_users = [5050588448]                                 # optional
+sudo_users = [5531461861]                                 # optional
 
 
 # All chats must be in the format of [-]1001234567890
 # Atleast one chat must be added
 
 [[chats]]
-from = -1001989382228        # required
-to = -1002026461119             # required
+from = -1002200660173        # required
+to = -1002217171960             # required
