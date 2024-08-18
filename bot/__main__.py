@@ -24,14 +24,14 @@ def get_file_id(msg: Message):
             return obj
 
 blocked_words = ["predvd", "predvdrip"]
-
-@app.on_message(filters.chat(monitored_chats) & filters.incoming)
-def work(_: Client, message: Message):
+for i in range(10):
+    @app.on_message(filters.chat(monitored_chats) & filters.incoming)
+    def work(_: Client, message: Message):
     caption = None
     msg = None
     chat = chats_map.get(message.chat.id)
     custom_caption = "{filename}\ncoded by @stellarlabsowner"  # Custom caption template
-
+    
     if chat.get("replace"):
         for old, new in chat["replace"].items():
             if message.media and not message.poll:
@@ -71,7 +71,7 @@ def work(_: Client, message: Message):
                 logging.info(f"Message from {message.chat.id} does not contain required words, not forwarding.")
     except Exception as e:
         logging.error(f"Error while sending message from {message.chat.id} to {chat_id}: {e}")
-
+print("all set")
 @app.on_message(filters.command("alive"))
 async def alive_handler(client, message):
     await message.reply_text(f"aada njan chathitilla evide thanne inde😇")
