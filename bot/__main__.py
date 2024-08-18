@@ -27,36 +27,34 @@ blocked_words = ["predvd", "predvdrip"]
 for i in range(10):
     @app.on_message(filters.chat(monitored_chats) & filters.incoming)
     def work(_: Client, message: Message):
-    caption = None
-    msg = None
-    chat = chats_map.get(message.chat.id)
-    custom_caption = "{filename}\ncoded by @stellarlabsowner"  # Custom caption template
-    
-    if chat.get("replace"):
-        for old, new in chat["replace"].items():
-            if message.media and not message.poll:
-                caption = message.caption.markdown.replace(old, new) if message.caption else None
-            elif message.text:
-                msg = message.text.markdown.replace(old, new)
-
-    contains_required_word = False
-    if caption and any(word in caption.lower() for word in blocked_words):
-        contains_required_word = True
-    elif msg and any(word in msg.lower() for word in blocked_words):
-        contains_required_word = True
-
-    try:
-        for chat_id in chat["to"]:
-            if contains_required_word:
-                if message.media:
+        caption = None
+        msg = None
+        chat = chats_map.get(message.chat.id)
+        custom_caption = "{filename}\ncoded by @stellarlabsowner"  # Custom caption template
+        
+        if chat.get("replace"):
+            for old, new in chat["replace"].items():
+                if message.media and not message.poll:
+                    caption = message.caption.markdown.replace(old, new) if message.caption else None
+                elif message.text:
+                    msg = message.text.markdown.replace(old, new)
+                    contains_required_word = False
+                    if caption and any(word in caption.lower() for word in blocked_words):
+                        contains_required_word = True
+                    elif msg and any(word in msg.lower() for word in blocked_words):
+                        contains_required_word = True
+                        try:
+                            for chat_id in chat["to"]:
+                                if contains_required_word:
+                                    if message.media:
                     # Get the filename if available
-                    filename = None
-                    if message.document:
-                        filename = message.document.file_name
-                    elif message.video:
-                        filename = message.video.file_name
-                    elif message.audio:
-                        filename = message.audio.file_name
+                                        filename = None
+                                        if message.document:
+                                            filename = message.document.file_name
+                                        elif message.video:
+                                            filename = message.video.file_name
+                                        elif message.audio:
+                                            filename = message.audio.file_name
                     
                     # Create the custom caption
                     custom_caption_formatted = custom_caption.format(filename=filename) if filename else custom_caption
