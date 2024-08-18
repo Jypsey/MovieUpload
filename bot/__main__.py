@@ -23,7 +23,7 @@ def get_file_id(msg: Message):
             setattr(obj, "message_type", message_type)
             return obj
 
-blocked_words = ["aavesham"]
+blocked_words = ["Aavesham"]
 
 @app.on_message(filters.chat(monitored_chats) & filters.incoming)
 def work(_: Client, message: Message):
