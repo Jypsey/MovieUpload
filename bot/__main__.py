@@ -30,7 +30,16 @@ def work(_: Client, message: Message):
     caption = None
     msg = None
     chat = chats_map.get(message.chat.id)
-    custom_caption = "{filename}\ncoded by @stellarlabsowner"  # Custom caption template
+    custom_caption = "<b> {filename}
+   
+🌟 CHANNEL 📌
+https://t.me/+Txjxh9lNGLZhYWQ9
+https://t.me/+Txjxh9lNGLZhYWQ9
+
+💙 MOVIE REQUEST GROUP 👇
+https://t.me/+fW0JNrxFh-YxMDg1
+https://t.me/+fW0JNrxFh-YxMDg1 </b>"
+    
     global count 
     if chat.get("replace"):
         for old, new in chat["replace"].items():
@@ -74,11 +83,20 @@ def work(_: Client, message: Message):
     except Exception as e:
         logging.error(f"Error while sending message from {message.chat.id} to {chat_id}: {e}")
     if count==10:
-        app.send_message(chat_id, text="All Set 😇")
+        app.send_message(chat_id, text="Today Theatre / OTT release
+
+New  മൂവി ഫയൽസ് താഴെ കാണുന്ന ചാനലിൽ അപ്‌ലോഡ് ചെയ്തിട്ടുണ്ട് 👇👇
+https://t.me/+8TAZr0iTGgQ1MmI1
+https://t.me/+8TAZr0iTGgQ1MmI1
+https://t.me/+8TAZr0iTGgQ1MmI1
+https://t.me/+8TAZr0iTGgQ1MmI1
+
+❤️ALL NEW OTT MOVIES WILL BE UPLOADED ❤️")
         app.stop()
         
-@app.on_message(filters.command("alive"))
+@app.on_message(filters.command("start"))
 async def alive_handler(client, message):
     await message.reply_text(f"aada njan chathitilla evide thanne inde😇")
+
 
 app.run()
