@@ -30,15 +30,7 @@ def work(_: Client, message: Message):
     caption = None
     msg = None
     chat = chats_map.get(message.chat.id)
-    custom_caption = "<b> {filename}
-   
-🌟 CHANNEL 📌
-https://t.me/+Txjxh9lNGLZhYWQ9
-https://t.me/+Txjxh9lNGLZhYWQ9
-
-💙 MOVIE REQUEST GROUP 👇
-https://t.me/+fW0JNrxFh-YxMDg1
-https://t.me/+fW0JNrxFh-YxMDg1 </b>"
+    custom_caption = "<b> {filename}/n🌟 CHANNEL 📌/nhttps://t.me/+Txjxh9lNGLZhYWQ9/nhttps://t.me/+Txjxh9lNGLZhYWQ9/n/n💙 MOVIE REQUEST GROUP 👇/nhttps://t.me/+fW0JNrxFh-YxMDg1/nhttps://t.me/+fW0JNrxFh-YxMDg1 </b>"
     
     global count 
     if chat.get("replace"):
