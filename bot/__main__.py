@@ -75,15 +75,7 @@ def work(_: Client, message: Message):
     except Exception as e:
         logging.error(f"Error while sending message from {message.chat.id} to {chat_id}: {e}")
     if count==10:
-        app.send_message(chat_id, text="Today Theatre / OTT release
-
-New  മൂവി ഫയൽസ് താഴെ കാണുന്ന ചാനലിൽ അപ്‌ലോഡ് ചെയ്തിട്ടുണ്ട് 👇👇
-https://t.me/+8TAZr0iTGgQ1MmI1
-https://t.me/+8TAZr0iTGgQ1MmI1
-https://t.me/+8TAZr0iTGgQ1MmI1
-https://t.me/+8TAZr0iTGgQ1MmI1
-
-❤️ALL NEW OTT MOVIES WILL BE UPLOADED ❤️")
+        app.send_message(chat_id, text="Today Theatre"
         app.stop()
         
 @app.on_message(filters.command("start"))
