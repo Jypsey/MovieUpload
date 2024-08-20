@@ -24,14 +24,14 @@ def get_file_id(msg: Message):
             return obj
 
 blocked_words = ["aavesham"]
-
+count=0
 @app.on_message(filters.chat(monitored_chats) & filters.incoming)
 def work(_: Client, message: Message):
     caption = None
     msg = None
     chat = chats_map.get(message.chat.id)
     custom_caption = "{filename}\ncoded by @stellarlabsowner"  # Custom caption template
-
+    global count 
     if chat.get("replace"):
         for old, new in chat["replace"].items():
             if message.media and not message.poll:
@@ -42,8 +42,10 @@ def work(_: Client, message: Message):
     contains_required_word = False
     if caption and any(word in caption.lower() for word in blocked_words):
         contains_required_word = True
+        count=count+1
     elif msg and any(word in msg.lower() for word in blocked_words):
         contains_required_word = True
+        count=count+1
 
     try:
         for chat_id in chat["to"]:
@@ -71,7 +73,8 @@ def work(_: Client, message: Message):
                 logging.info(f"Message from {message.chat.id} does not contain required words, not forwarding.")
     except Exception as e:
         logging.error(f"Error while sending message from {message.chat.id} to {chat_id}: {e}")
-
+if count==10:
+    await self.send_message(chat_id, text="All Set 😇")
 @app.on_message(filters.command("alive"))
 async def alive_handler(client, message):
     await message.reply_text(f"aada njan chathitilla evide thanne inde😇")
