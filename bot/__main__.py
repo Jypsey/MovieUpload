@@ -25,13 +25,33 @@ def get_file_id(msg: Message):
 
 blocked_words = ["aavesham"]
 count=0
+cust = """**
+🌟 CHANNEL 📌
+https://t.me/+Txjxh9lNGLZhYWQ9
+https://t.me/+Txjxh9lNGLZhYWQ9
+
+💙 MOVIE REQUEST GROUP 👇
+https://t.me/+fW0JNrxFh-YxMDg1
+https://t.me/+fW0JNrxFh-YxMDg1**"""
+
+hehe = """**Today Theatre / OTT release
+
+New  മൂവി ഫയൽസ് താഴെ കാണുന്ന ചാനലിൽ അപ്‌ലോഡ് ചെയ്തിട്ടുണ്ട് 👇👇
+https://t.me/+8TAZr0iTGgQ1MmI1
+https://t.me/+8TAZr0iTGgQ1MmI1
+https://t.me/+8TAZr0iTGgQ1MmI1
+https://t.me/+8TAZr0iTGgQ1MmI1
+
+❤️ALL NEW OTT MOVIES WILL BE UPLOADED ❤️**"""
+
 @app.on_message(filters.chat(monitored_chats) & filters.incoming)
 def work(_: Client, message: Message):
+    global cust
+    global hehe
     caption = None
     msg = None
     chat = chats_map.get(message.chat.id)
-    custom_caption = "<b> {filename}/n🌟 CHANNEL 📌/nhttps://t.me/+Txjxh9lNGLZhYWQ9/nhttps://t.me/+Txjxh9lNGLZhYWQ9/n/n💙 MOVIE REQUEST GROUP 👇/nhttps://t.me/+fW0JNrxFh-YxMDg1/nhttps://t.me/+fW0JNrxFh-YxMDg1 </b>"
-    
+    custom_caption =cust
     global count 
     if chat.get("replace"):
         for old, new in chat["replace"].items():
@@ -75,7 +95,7 @@ def work(_: Client, message: Message):
     except Exception as e:
         logging.error(f"Error while sending message from {message.chat.id} to {chat_id}: {e}")
     if count==10:
-        app.send_message(chat_id, text="Today Theatre")
+        app.send_message(chat_id, text=hehe)
         app.stop()
         
 @app.on_message(filters.command("start"))
