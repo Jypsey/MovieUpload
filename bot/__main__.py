@@ -75,6 +75,8 @@ def work(_: Client, message: Message):
         logging.error(f"Error while sending message from {message.chat.id} to {chat_id}: {e}")
     if count==10:
         app.send_message(chat_id, text="All Set 😇")
+        app.stop()
+        
 @app.on_message(filters.command("alive"))
 async def alive_handler(client, message):
     await message.reply_text(f"aada njan chathitilla evide thanne inde😇")
