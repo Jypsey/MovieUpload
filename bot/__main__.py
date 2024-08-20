@@ -25,7 +25,8 @@ def get_file_id(msg: Message):
 
 blocked_words = ["aavesham"]
 count=0
-cust = """**
+cust = """**{filename}
+
 🌟 CHANNEL 📌
 https://t.me/+Txjxh9lNGLZhYWQ9
 https://t.me/+Txjxh9lNGLZhYWQ9
