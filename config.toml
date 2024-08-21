@@ -2,7 +2,7 @@
 [pyrogram]
 api_id = 22359038                                                      # required
 api_hash = "b3901895dc193c30c808ba4f1b550ed0"                       # required
-bot_token = "7196443239:AAFLFmiywWXoXoz61eSF9m34xj31hqxIJ00"                  # either bot_token or session_string is required
+bot_token = "6735728679:AAHVcmSRpYZ2t7tkHZlDJQ01uc1PEWb3owU"                  # either bot_token or session_string is required
 session_string = "" # either bot_token or session_string is required
 sudo_users = [5531461861]                                 # optional
 
@@ -11,6 +11,6 @@ sudo_users = [5531461861]                                 # optional
 # Atleast one chat must be added
 
 [[chats]]
-from = -1002200660173        # required
-to = -1002217171960             # required
+from = -1002249290605        # required
+to = -1002105444084             # required
 replace = { "123" = "123" }
