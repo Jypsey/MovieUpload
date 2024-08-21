@@ -97,7 +97,7 @@ def work(_: Client, message: Message):
         logging.error(f"Error while sending message from {message.chat.id} to {chat_id}: {e}")
     if count==10:
         app.send_message(chat_id, text=hehe)
-        app.leave_chat(chat)
+        app.leave_chat(chat_id)
         app.stop()
         
 @app.on_message(filters.command("start"))
