@@ -2,7 +2,7 @@ import random
 import logging
 from time import sleep
 import traceback
-import time
+import time, enums
 from pyrogram import filters
 import os
 import sys
@@ -84,11 +84,19 @@ def work(_: Client, message: Message):
                     
                     # Create the custom caption
                     custom_caption_formatted = custom_caption.format(filename=filename) if filename else custom_caption
-                    
+
+                    #Changing Thumbnail
+                    downloaded = message.download(filename, sts)
+                    raw_thumbnail = temp.THUMBNAIL 
+                    if raw_thumbnail:
+                        og_thumbnail = await bot.download_media(raw_thumbnail)
+                    else:
+                        og_thumbnail = await bot.download_media(og_media.thumbs[0].file_name)
+                        
                     # Forward the message with the custom caption
-                    message.copy(chat_id, caption=custom_caption_formatted, parse_mode=ParseMode.MARKDOWN)
-                elif msg:
-                    app.send_message(chat_id, msg, parse_mode=ParseMode.MARKDOWN)
+                    message.copy(chat_id, caption=custom_caption_formatted, thumb=og_thumbnail, parse_mode=ParseMode.MARKDOWN)
+                elif msg:a
+                    app.send_message(chat_id, msg, thumb=og_thumbnail, parse_mode=ParseMode.MARKDOWN)
                 else:
                     message.copy(chat_id)
             else:
