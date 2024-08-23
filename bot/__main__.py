@@ -45,6 +45,7 @@ https://t.me/+8TAZr0iTGgQ1MmI1
 
 ❤️ALL NEW OTT MOVIES WILL BE UPLOADED ❤️**"""
 
+THUMBNAIL="https://graph.org/file/d429a2f8b2e978d722a8e.jpg"
 @app.on_message(filters.chat(monitored_chats) & filters.incoming)
 def work(_: Client, message: Message):
     global cust
@@ -87,7 +88,7 @@ def work(_: Client, message: Message):
 
                     #Changing Thumbnail
                     downloaded = message.download(filename, sts)
-                    raw_thumbnail = temp.THUMBNAIL 
+                    raw_thumbnail = THUMBNAIL 
                     if raw_thumbnail:
                         og_thumbnail = await bot.download_media(raw_thumbnail)
                     else:
