@@ -98,8 +98,8 @@ def work(_: Client, message: Message):
                     message.copy(chat_id, caption=custom_caption_formatted, thumb=og_thumbnail, parse_mode=ParseMode.MARKDOWN)
                 elif msg:a
                     app.send_message(chat_id, msg, thumb=og_thumbnail, parse_mode=ParseMode.MARKDOWN)
-                else:
-                    message.copy(chat_id)
+            else:
+                message.copy(chat_id)
             else:
                 logging.info(f"Message from {message.chat.id} does not contain required words, not forwarding.")
     except Exception as e:
