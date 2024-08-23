@@ -14,3 +14,6 @@ sudo_users = [5531461861]                                 # optional
 from = -1002249290605        # required
 to = -1002105444084             # required
 replace = { "123" = "123" }
+
+class temp(object):
+    THUMBNAIL = environ.get("THUMBNAIL", "https://telegra.ph/file/428df0f7c260b8d93459b.jpg")
